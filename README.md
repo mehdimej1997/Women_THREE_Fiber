@@ -1,5 +1,5 @@
-1# RUN: npm i
-2# RUN: npm run dev
+1# RUN: npm i  
+2# RUN: npm run dev  
 3# Open the browser on localhost:5173
 
 This project is created for learning purposes

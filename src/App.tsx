@@ -1,17 +1,14 @@
-import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { Woman } from "./components/Woman";
 import { Interface } from "./components/Interface";
+import { CameraControls } from "./components/CameraControls";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
       <Interface />
       <Canvas shadows camera={{ position: [-1.5, 2.5, 5], fov: 75, near: 0.1 }}>
-        <OrbitControls />
+        <CameraControls />
         <ambientLight />
         <directionalLight
           position={[-5, 5, 5]}

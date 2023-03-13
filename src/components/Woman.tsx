@@ -6,11 +6,16 @@ Command: npx gltfjsx@6.1.4 public/model/woman.gltf
 import { FC, useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useCharacterAnimations } from "../context/CharacterAnimationContext";
+import {
+  Body,
+  useCharacterCustomization,
+} from "../context/CharacterCustomizationContext";
 
 export const Woman: FC<any> = (props) => {
   const group = useRef();
   const { nodes, materials, animations }: any = useGLTF("/model/woman.gltf");
   const { actions, names } = useAnimations(animations, group);
+  const { colors }: any = useCharacterCustomization();
 
   const {
     setAnimations,
@@ -41,11 +46,12 @@ export const Woman: FC<any> = (props) => {
               castShadow
               name="Mesh019"
               geometry={nodes.Mesh019.geometry}
-              material={materials.Glasses}
               skeleton={nodes.Mesh019.skeleton}
               morphTargetDictionary={nodes.Mesh019.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.GLASSES} />
+            </skinnedMesh>
             <skinnedMesh
               frustumCulled={false}
               castShadow
@@ -61,71 +67,78 @@ export const Woman: FC<any> = (props) => {
               castShadow
               name="Mesh019_2"
               geometry={nodes.Mesh019_2.geometry}
-              material={materials.Hair}
               skeleton={nodes.Mesh019_2.skeleton}
               morphTargetDictionary={nodes.Mesh019_2.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019_2.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.HAIR} />
+            </skinnedMesh>
             <skinnedMesh
               frustumCulled={false}
               castShadow
               name="Mesh019_3"
               geometry={nodes.Mesh019_3.geometry}
-              material={materials.Skin}
               skeleton={nodes.Mesh019_3.skeleton}
               morphTargetDictionary={nodes.Mesh019_3.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019_3.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.SKIN} />
+            </skinnedMesh>
             <skinnedMesh
               frustumCulled={false}
               castShadow
               name="Mesh019_4"
               geometry={nodes.Mesh019_4.geometry}
-              material={materials.Mouth}
               skeleton={nodes.Mesh019_4.skeleton}
               morphTargetDictionary={nodes.Mesh019_4.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019_4.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.LIPS} />
+            </skinnedMesh>
             <skinnedMesh
               frustumCulled={false}
               castShadow
               name="Mesh019_5"
               geometry={nodes.Mesh019_5.geometry}
-              material={materials.Shirt}
               skeleton={nodes.Mesh019_5.skeleton}
               morphTargetDictionary={nodes.Mesh019_5.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019_5.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.SHIRT} />
+            </skinnedMesh>
             <skinnedMesh
               frustumCulled={false}
               castShadow
               name="Mesh019_6"
               geometry={nodes.Mesh019_6.geometry}
-              material={materials.Pants}
               skeleton={nodes.Mesh019_6.skeleton}
               morphTargetDictionary={nodes.Mesh019_6.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019_6.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.PANT} />
+            </skinnedMesh>
             <skinnedMesh
               frustumCulled={false}
               castShadow
               name="Mesh019_7"
               geometry={nodes.Mesh019_7.geometry}
-              material={materials.Shoes}
               skeleton={nodes.Mesh019_7.skeleton}
               morphTargetDictionary={nodes.Mesh019_7.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019_7.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.SHOE} />
+            </skinnedMesh>
             <skinnedMesh
               frustumCulled={false}
               castShadow
               name="Mesh019_8"
               geometry={nodes.Mesh019_8.geometry}
-              material={materials.Sole}
               skeleton={nodes.Mesh019_8.skeleton}
               morphTargetDictionary={nodes.Mesh019_8.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019_8.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.SOLE} />
+            </skinnedMesh>
             <skinnedMesh
               frustumCulled={false}
               castShadow
@@ -135,7 +148,9 @@ export const Woman: FC<any> = (props) => {
               skeleton={nodes.Mesh019_9.skeleton}
               morphTargetDictionary={nodes.Mesh019_9.morphTargetDictionary}
               morphTargetInfluences={nodes.Mesh019_9.morphTargetInfluences}
-            />
+            >
+              <meshStandardMaterial color={colors.STRINGS} />
+            </skinnedMesh>
           </group>
         </group>
       </group>
